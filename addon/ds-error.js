@@ -1,7 +1,7 @@
+import { Errors } from '@ember-data/model/-private';
 import { get } from '@ember/object';
 import { isNone } from '@ember/utils';
 import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
-import DS from 'ember-data';
 
 /**
  *  @class DS Error
@@ -16,15 +16,11 @@ import DS from 'ember-data';
  * @param {String} attribute
  */
 export default function validateDsError(value, options, model, attribute) {
-  if (!DS) {
-    throw new Error('Ember-Data is required to use the DS Error validator.');
-  }
-
   let { path, key } = getPathAndKey(attribute);
 
   let errors = get(model, path);
 
-  if (!isNone(errors) && errors instanceof DS.Errors && errors.has(key)) {
+  if (!isNone(errors) && errors instanceof Errors && errors.has(key)) {
     return validationError('ds', null, options, get(errors.errorsFor(key), 'lastObject.message'));
   }
 

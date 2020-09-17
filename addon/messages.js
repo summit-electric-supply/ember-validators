@@ -1,4 +1,3 @@
-import { get } from '@ember/object';
 import { isNone } from '@ember/utils';
 
 /**
@@ -30,7 +29,7 @@ export default {
    * @return {String}
    */
   getDescriptionFor(attribute, context = {}) {
-    return get(context, 'description') || get(this, 'defaultDescription');
+    return context.description ?? this.defaultDescription;
   },
 
   /**
@@ -41,7 +40,7 @@ export default {
    * @return {String}
    */
   getMessageFor(type, context = {}) {
-    return this.formatMessage(get(this, type), context);
+    return this.formatMessage(this[type], context);
   },
 
   /**
@@ -55,9 +54,9 @@ export default {
     let m = message;
 
     if (isNone(m) || typeof m !== 'string') {
-      m = get(this, 'invalid');
+      m = this.invalid;
     }
-    return m.replace(get(this, '_regex'), (s, attr) => get(context, attr));
+    return m.replace(this._regex, (s, attr) => context[attr]);
   },
 
   /**
