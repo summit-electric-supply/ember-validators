@@ -2,11 +2,20 @@
     "project": {
         "name": "Ember Validators",
         "description": "A collection of EmberJS validators",
-        "url": "https://github.com/offirgolan/ember-validators",
+        "url": "https://github.com/summit-electric-supply/ember-cp-validations",
         "indexModule": "Validators",
-        "version": "v2.0.0"
+        "version": "v2.1.0-beta.1"
     },
     "files": {
+        "addon/utils/can-invoke.js": {
+            "name": "addon/utils/can-invoke.js",
+            "modules": {},
+            "classes": {},
+            "fors": {
+                "Ember": 1
+            },
+            "namespaces": {}
+        },
         "addon/collection.js": {
             "name": "addon/collection.js",
             "modules": {
@@ -115,6 +124,7 @@
             "submodules": {},
             "elements": {},
             "classes": {
+                "Ember": 1,
                 "Collection": 1,
                 "Confirmation": 1,
                 "Date": 1,
@@ -135,6 +145,16 @@
         }
     },
     "classes": {
+        "Ember": {
+            "name": "Ember",
+            "shortname": "Ember",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Validators"
+        },
         "Collection": {
             "name": "Collection",
             "shortname": "Collection",
@@ -145,7 +165,7 @@
             "extension_for": [],
             "module": "Validators",
             "file": "addon/collection.js",
-            "line": 8
+            "line": 7
         },
         "Confirmation": {
             "name": "Confirmation",
@@ -171,7 +191,7 @@
             "module": "Validators",
             "namespace": "",
             "file": "addon/date.js",
-            "line": 8
+            "line": 6
         },
         "DS Error": {
             "name": "DS Error",
@@ -184,7 +204,7 @@
             "module": "Validators",
             "namespace": "",
             "file": "addon/ds-error.js",
-            "line": 8
+            "line": 6
         },
         "Exclusion": {
             "name": "Exclusion",
@@ -210,7 +230,7 @@
             "module": "Validators",
             "namespace": "",
             "file": "addon/format.js",
-            "line": 12
+            "line": 7
         },
         "Inclusion": {
             "name": "Inclusion",
@@ -249,7 +269,7 @@
             "module": "Validators",
             "namespace": "",
             "file": "addon/messages.js",
-            "line": 4
+            "line": 3
         },
         "Number": {
             "name": "Number",
@@ -281,8 +301,32 @@
     "elements": {},
     "classitems": [
         {
+            "file": "addon/utils/can-invoke.js",
+            "line": 1,
+            "description": "Checks to see if the `methodName` exists on the `obj`.\n```javascript\nlet foo = { bar: function() { return 'bar'; }, baz: null };\nEmber.canInvoke(foo, 'bar'); // true\nEmber.canInvoke(foo, 'baz'); // false\nEmber.canInvoke(foo, 'bat'); // false\n```",
+            "itemtype": "method",
+            "name": "canInvoke",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "The object to check for the method",
+                    "type": "Object"
+                },
+                {
+                    "name": "methodName",
+                    "description": "The method name to check for",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Ember"
+        },
+        {
             "file": "addon/collection.js",
-            "line": 13,
+            "line": 12,
             "itemtype": "method",
             "name": "validate",
             "params": [
@@ -361,7 +405,7 @@
         },
         {
             "file": "addon/date.js",
-            "line": 13,
+            "line": 11,
             "itemtype": "method",
             "name": "validate",
             "params": [
@@ -433,7 +477,7 @@
         },
         {
             "file": "addon/ds-error.js",
-            "line": 13,
+            "line": 11,
             "itemtype": "method",
             "name": "validate",
             "params": [
@@ -510,7 +554,7 @@
         },
         {
             "file": "addon/format.js",
-            "line": 17,
+            "line": 12,
             "itemtype": "method",
             "name": "validate",
             "params": [
@@ -681,7 +725,7 @@
         },
         {
             "file": "addon/messages.js",
-            "line": 9,
+            "line": 8,
             "description": "Regex for matching error message placeholders",
             "access": "private",
             "tagname": "",
@@ -693,7 +737,7 @@
         },
         {
             "file": "addon/messages.js",
-            "line": 17,
+            "line": 16,
             "description": "Default attribute description if one isnt passed into a validator's options",
             "itemtype": "property",
             "name": "defaultDescription",
@@ -703,7 +747,7 @@
         },
         {
             "file": "addon/messages.js",
-            "line": 24,
+            "line": 23,
             "description": "Get a description for a specific attribute. This is a hook\nfor i18n solutions to retrieve attribute descriptions from a translation",
             "itemtype": "method",
             "name": "getDescriptionFor",
@@ -728,7 +772,7 @@
         },
         {
             "file": "addon/messages.js",
-            "line": 36,
+            "line": 35,
             "description": "Get a message with a given type",
             "itemtype": "method",
             "name": "getMessageFor",
@@ -753,7 +797,7 @@
         },
         {
             "file": "addon/messages.js",
-            "line": 47,
+            "line": 46,
             "description": "Regex replace all placeholders with their given context",
             "itemtype": "method",
             "name": "formatMessage",
@@ -778,7 +822,7 @@
         },
         {
             "file": "addon/messages.js",
-            "line": 63,
+            "line": 62,
             "description": "Default validation error message strings",
             "class": "Messages",
             "module": "Validators"
@@ -926,7 +970,7 @@
     "warnings": [
         {
             "message": "Missing item type\nDefault validation error message strings",
-            "line": " addon/messages.js:63"
+            "line": " addon/messages.js:62"
         }
     ]
 }

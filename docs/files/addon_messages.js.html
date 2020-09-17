@@ -13,20 +13,21 @@
     <link rel="stylesheet" href="../assets/css/theme.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700' rel='stylesheet' type='text/css'>
     
+
 </head>
 <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <a href="../" class="navbar-brand">
-            <img src="../assets/img/ember-logo.png" alt="">
+              <img src="../assets/img/ember-logo.png" alt="enterprise logo">
             <span>Validators</span>
           </a>
         </div>
 
         <div class="collapse navbar-collapse" id="nav">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/offirgolan/ember-validators" class="fa fa-github github"></a></li>
+            <li><a href="https://github.com/summit-electric-supply/ember-cp-validations" class="fa fa-github github"></a></li>
           </ul>
         </div>
       </div>
@@ -53,8 +54,8 @@
                     <li class="panel panel-default">
                         <div class="panel-heading" role="tab" id="sidebar-version-heading">
                             <h4 class="panel-title">
-                                <a role="button" href="https://github.com/offirgolan/ember-validators/commits/v2.0.0" target="_blank">
-                                  Tag: v2.0.0
+                                <a role="button" href="https://github.com/summit-electric-supply/ember-cp-validations/commits/v2.1.0-beta.1" target="_blank">
+                                  Tag: v2.1.0-beta.1
                                 </a>
                             </h4>
                         </div>
@@ -137,7 +138,6 @@
 
 <div class="file">
     <pre class="prettyprint linenums">
-import { get } from &#x27;@ember/object&#x27;;
 import { isNone } from &#x27;@ember/utils&#x27;;
 
 /**
@@ -169,7 +169,7 @@ export default {
    * @return {String}
    */
   getDescriptionFor(attribute, context = {}) {
-    return get(context, &#x27;description&#x27;) || get(this, &#x27;defaultDescription&#x27;);
+    return context.description ?? this.defaultDescription;
   },
 
   /**
@@ -180,7 +180,7 @@ export default {
    * @return {String}
    */
   getMessageFor(type, context = {}) {
-    return this.formatMessage(get(this, type), context);
+    return this.formatMessage(this[type], context);
   },
 
   /**
@@ -194,9 +194,9 @@ export default {
     let m = message;
 
     if (isNone(m) || typeof m !== &#x27;string&#x27;) {
-      m = get(this, &#x27;invalid&#x27;);
+      m = this.invalid;
     }
-    return m.replace(get(this, &#x27;_regex&#x27;), (s, attr) =&gt; get(context, attr));
+    return m.replace(this._regex, (s, attr) =&gt; context[attr]);
   },
 
   /**
