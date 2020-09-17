@@ -3,7 +3,7 @@
 [![build](https://img.shields.io/github/workflow/status/summit-electric-supply/ember-validators/CI)](https://github.com/summit-electric-supply/ember-validators/actions?query=workflow%3ACI)
 [![npm](https://img.shields.io/npm/v/@summit-electric-supply/ember-validators)](https://www.npmjs.com/package/@summit-electric-supply/ember-validators)
 
-A collection of EmberJS validators
+A collection of EmberJS validators, forked from [ember-validators](https://github.com/offirgolan/ember-validators).
 
 ## Compatibility
 
@@ -31,8 +31,8 @@ If it is a bug [please open an issue on GitHub](http://github.com/summit-electri
 Validators can be individually imported and used as such
 
 ```js
-import validatePresence from 'ember-validators/presence';
-import validateLength from 'ember-validators/length';
+import validatePresence from '@summit-electric-supply/ember-validators/presence';
+import validateLength from '@summit-electric-supply/ember-validators/length';
 
 validatePresence('foo', { presence: true });
 validateLength('foo', { min: 1 });
@@ -41,7 +41,7 @@ validateLength('foo', { min: 1 });
 or via the **validate** method provided
 
 ```js
-import { validate } from 'ember-validators';
+import { validate } from '@summit-electric-supply/ember-validators';
 
 validate('presence', 'foo', { presence: true });
 validate('length', 'foo', { min: 1 });
