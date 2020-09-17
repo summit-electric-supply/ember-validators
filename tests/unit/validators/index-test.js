@@ -1,14 +1,14 @@
 import { module, test } from 'qunit';
-import { validate } from 'ember-validators';
+import { validate } from '@summit-electric-supply/ember-validators';
 
-module('Unit | Validator | index');
+module('Unit | Validator | index', function() {
+  test('validate presence via general validate method', function(assert) {
+    let result = validate('presence', 'a', { presence: true });
+    assert.equal(result, true);
+  });
 
-test('validate presence via general validate method', function(assert) {
-  let result = validate('presence', 'a', { presence: true });
-  assert.equal(result, true);
-});
-
-test('validate date via general validate method', function(assert) {
-  let result = validate('date', 'now', { });
-  assert.equal(result, true);
+  test('validate date via general validate method', function(assert) {
+    let result = validate('date', 'now', { });
+    assert.equal(result, true);
+  });
 });

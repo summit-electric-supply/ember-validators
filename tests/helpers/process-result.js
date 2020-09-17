@@ -1,5 +1,5 @@
 import { set } from '@ember/object';
-import Messages from 'ember-validators/messages';
+import Messages from '@summit-electric-supply/ember-validators/messages';
 
 export default function processResult(result) {
   if (result && typeof result === 'object') {

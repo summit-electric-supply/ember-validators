@@ -1,7 +1,7 @@
 import { isEmpty, typeOf } from '@ember/utils';
 import { assert } from '@ember/debug';
 import { getProperties, get } from '@ember/object';
-import validationError from 'ember-validators/utils/validation-error';
+import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
 
 /**
  *  @class Exclusion

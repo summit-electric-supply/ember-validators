@@ -5,10 +5,16 @@
 
 A collection of EmberJS validators
 
+## Compatibility
+
+* Ember.js v3.16 or above
+* Ember CLI v2.13 or above
+* Node.js v10 or above
+
 ## Installation
 
 ```shell
-ember install ember-validators
+ember install @summit-electric-supply/ember-validators
 ```
 
 ## Helpful Links

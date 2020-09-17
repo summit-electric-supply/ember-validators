@@ -1,7 +1,7 @@
 {
   "name": "Ember Validators",
   "description": "A collection of EmberJS validators",
-  "url": "https://github.com/offirgolan/ember-validators",
+  "url": "https://github.com/summit-electric-supply/ember-cp-validations",
   "indexModule": "Validators",
   "options": {
     "enabledEnvironments": ["development", "production"],
@@ -11,8 +11,8 @@
     ],
     "external": {
       "data": [{
-        "base": "http://emberjs.com/api/",
-        "json": "http://builds.emberjs.com/tags/v2.10.0/ember-docs.json"
+        "base": "https://api.emberjs.com/ember/release/",
+        "json": "https://unpkg.com/ember-source@3.21.1/docs/data.json"
       }]
     },
     "themedir": "node_modules/yuidoc-ember-theme",

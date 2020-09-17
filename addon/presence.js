@@ -1,8 +1,8 @@
 import { assert } from '@ember/debug';
 import { isPresent, isEmpty } from '@ember/utils';
 import { getProperties } from '@ember/object';
-import validationError from 'ember-validators/utils/validation-error';
-import unwrapProxy from 'ember-validators/utils/unwrap-proxy';
+import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
+import unwrapProxy from '@summit-electric-supply/ember-validators/utils/unwrap-proxy';
 
 /**
  *  @class Presence

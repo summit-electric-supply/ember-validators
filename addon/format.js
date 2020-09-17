@@ -1,13 +1,8 @@
 import { isEmpty, isNone } from '@ember/utils';
 import { assert } from '@ember/debug';
 import { getProperties, set } from '@ember/object';
-
-import Ember from 'ember';
-import validationError from 'ember-validators/utils/validation-error';
-
-const {
-  canInvoke
-} = Ember;
+import canInvoke from '@summit-electric-supply/ember-validators/utils/can-invoke';
+import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
 
 /**
  *  @class Format

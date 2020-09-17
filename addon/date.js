@@ -1,9 +1,7 @@
 import { isEmpty, isNone } from '@ember/utils';
-import { set, getProperties, getWithDefault } from '@ember/object';
-import validationError from 'ember-validators/utils/validation-error';
-import requireModule from 'ember-require-module';
-
-const moment = requireModule('moment');
+import { set, getProperties, get } from '@ember/object';
+import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
+import moment from 'moment';
 
 /**
  * @class Date
@@ -31,7 +29,7 @@ export default function validateDate(value, options) {
     throw new Error('MomentJS is required to use the Date validator.');
   }
 
-  let errorFormat = getWithDefault(options, 'errorFormat', 'MMM Do, YYYY');
+  let errorFormat = get(options, 'errorFormat') ?? 'MMM Do, YYYY';
   let { format, precision, allowBlank } = getProperties(options, ['format', 'precision', 'allowBlank']);
   let { before, onOrBefore, after, onOrAfter } = getProperties(options, ['before', 'onOrBefore', 'after', 'onOrAfter']);
   let date;

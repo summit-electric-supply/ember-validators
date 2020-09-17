@@ -1,9 +1,8 @@
 import { get } from '@ember/object';
-
 import { assert } from '@ember/debug';
 import { isArray } from '@ember/array';
 import { isPresent } from '@ember/utils';
-import validationError from 'ember-validators/utils/validation-error';
+import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
 
 /**
  *  @class Collection
