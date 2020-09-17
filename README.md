@@ -1,7 +1,7 @@
 # Ember Validators
 
-[![Build Status](https://travis-ci.org/offirgolan/ember-validators.svg)](https://travis-ci.org/offirgolan/ember-validators)
-[![npm version](https://badge.fury.io/js/ember-validators.svg)](http://badge.fury.io/js/ember-validators)
+[![build](https://img.shields.io/github/workflow/status/summit-electric-supply/ember-validators/CI)](https://github.com/summit-electric-supply/ember-validators/actions?query=workflow%3ACI)
+[![npm](https://img.shields.io/npm/v/@summit-electric-supply/ember-validators)](https://www.npmjs.com/package/@summit-electric-supply/ember-validators)
 
 A collection of EmberJS validators
 
@@ -19,12 +19,12 @@ ember install @summit-electric-supply/ember-validators
 
 ## Helpful Links
 
-- ### [Documentation](https://offirgolan.github.io/ember-validators)
+- ### [Documentation](https://summit-electric-supply.github.io/ember-validators)
 - ### [Changelog](CHANGELOG.md)
 
 ## Looking for help?
 
-If it is a bug [please open an issue on GitHub](http://github.com/offirgolan/ember-validators/issues).
+If it is a bug [please open an issue on GitHub](http://github.com/summit-electric-supply/ember-validators/issues).
 
 ## Usage
 
