@@ -131,24 +131,12 @@
         "git push origin gh-pages:gh-pages"
       ]
     },
-    "plugins": {
-      "release-it-lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
     "git": {
       "tagName": "v${version}"
     },
     "github": {
       "release": true,
       "tokenRef": "GITHUB_AUTH"
-    },
-    "changelog": {
-      "labels": {
-        "feature": "New Feature",
-        "bug": "Bug Fix"
-      }
     }
   },
   "engines": {
