@@ -1,6 +1,6 @@
 {
   "name": "@summit-electric-supply/ember-validators",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "A collection of Ember validators",
   "keywords": [
     "ember-addon",
