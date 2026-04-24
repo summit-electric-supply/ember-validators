@@ -128,8 +128,7 @@
   "release-it": {
     "hooks": {
       "after:release": [
-        "ember github-pages:commit --message \"Released '${version}'\"",
-        "git push origin gh-pages:gh-pages"
+        "npm run deploy"
       ]
     },
     "git": {
