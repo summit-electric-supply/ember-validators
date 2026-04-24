@@ -4125,10 +4125,10 @@ return!0}}),define("@summit-electric-supply/ember-validators/confirmation",["exp
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,n,a,o){var s=(0,t.get)(n,"on")
 if((0,t.get)(n,"allowBlank")&&(0,r.isEmpty)(e))return!0
 if(!(0,r.isEqual)(e,(0,t.get)(a,s)))return(0,i.default)("confirmation",e,n)
-return!0}}),define("@summit-electric-supply/ember-validators/date",["exports","@ember/utils","@ember/object","@summit-electric-supply/ember-validators/utils/validation-error"],function(e,t,n,r){"use strict"
-var i
-Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,o){var s
-if(!i)throw new Error("MomentJS is required to use the Date validator.")
+return!0}}),define("@summit-electric-supply/ember-validators/date",["exports","@ember/utils","@ember/object","@summit-electric-supply/ember-validators/utils/validation-error","moment"],function(e,t,n,r,i){"use strict"
+function a(e,n){var r=arguments.length>2&&void 0!==arguments[2]&&arguments[2]
+return"now"===e||(0,t.isEmpty)(e)?(0,i.default)():(0,t.isNone)(n)?(0,i.default)(new Date(e)):(0,i.default)(e,n,r)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,o){var s
+if(!i.default)throw new Error("MomentJS is required to use the Date validator.")
 var u,l=null!==(s=(0,n.get)(o,"errorFormat"))&&void 0!==s?s:"MMM Do, YYYY",c=(0,n.getProperties)(o,["format","precision","allowBlank"]),f=c.format,h=c.precision,d=c.allowBlank,p=(0,n.getProperties)(o,["before","onOrBefore","after","onOrAfter"]),v=p.before,y=p.onOrBefore,m=p.after,g=p.onOrAfter
 if(d&&(0,t.isEmpty)(e))return!0
 if(f){if(u=a(e,f,!0),!a(e,f).isValid())return(0,r.default)("date",e,o)
@@ -4137,9 +4137,7 @@ if(v&&(v=a(v,f),!u.isBefore(v,h)))return(0,n.set)(o,"before",v.format(l)),(0,r.d
 if(y&&(y=a(y,f),!u.isSameOrBefore(y,h)))return(0,n.set)(o,"onOrBefore",y.format(l)),(0,r.default)("onOrBefore",e,o)
 if(m&&(m=a(m,f),!u.isAfter(m,h)))return(0,n.set)(o,"after",m.format(l)),(0,r.default)("after",e,o)
 if(g&&(g=a(g,f),!u.isSameOrAfter(g,h)))return(0,n.set)(o,"onOrAfter",g.format(l)),(0,r.default)("onOrAfter",e,o)
-return!0},e.parseDate=a
-try{i=require("moment")}catch(o){i=void 0}function a(e,n){var r=arguments.length>2&&void 0!==arguments[2]&&arguments[2]
-return"now"===e||(0,t.isEmpty)(e)?i():(0,t.isNone)(n)?i(new Date(e)):i(e,n,r)}}),define("@summit-electric-supply/ember-validators/ds-error",["exports","@ember-data/model/-private","@ember/object","@ember/utils","@summit-electric-supply/ember-validators/utils/validation-error"],function(e,t,n,r,i){"use strict"
+return!0},e.parseDate=a}),define("@summit-electric-supply/ember-validators/ds-error",["exports","@ember-data/model/-private","@ember/object","@ember/utils","@summit-electric-supply/ember-validators/utils/validation-error"],function(e,t,n,r,i){"use strict"
 function a(e){var t=e.split("."),n=t.pop()
 return t.push("errors"),{path:t.join("."),key:n}}Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,o,s,u){var l=a(u),c=l.path,f=l.key,h=(0,n.get)(s,c)
 if(!(0,r.isNone)(h)&&h instanceof t.Errors&&h.has(f))return(0,i.default)("ds",null,o,(0,n.get)(h.errorsFor(f),"lastObject.message"))

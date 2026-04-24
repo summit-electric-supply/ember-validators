@@ -54,8 +54,8 @@
                     <li class="panel panel-default">
                         <div class="panel-heading" role="tab" id="sidebar-version-heading">
                             <h4 class="panel-title">
-                                <a role="button" href="https://github.com/summit-electric-supply/ember-cp-validations/commits/v2.1.8" target="_blank">
-                                  Tag: v2.1.8
+                                <a role="button" href="https://github.com/summit-electric-supply/ember-cp-validations/commits/v2.1.9" target="_blank">
+                                  Tag: v2.1.9
                                 </a>
                             </h4>
                         </div>
@@ -141,14 +141,7 @@
 import { isEmpty, isNone } from &#x27;@ember/utils&#x27;;
 import { set, getProperties, get } from &#x27;@ember/object&#x27;;
 import validationError from &#x27;@summit-electric-supply/ember-validators/utils/validation-error&#x27;;
-let moment;
-
-try {
-  moment = require(&#x27;moment&#x27;);
-} catch (e) {
-  // For ESM environments (like Vite/Embroider), fallback to import
-  moment = undefined;
-}
+import moment from &#x27;moment&#x27;;
 
 /**
  * @class Date

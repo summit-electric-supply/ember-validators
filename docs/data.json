@@ -4,7 +4,7 @@
         "description": "A collection of EmberJS validators",
         "url": "https://github.com/summit-electric-supply/ember-cp-validations",
         "indexModule": "Validators",
-        "version": "v2.1.8"
+        "version": "v2.1.9"
     },
     "files": {
         "addon/utils/can-invoke.js": {
@@ -191,7 +191,7 @@
             "module": "Validators",
             "namespace": "",
             "file": "addon/date.js",
-            "line": 13
+            "line": 6
         },
         "DS Error": {
             "name": "DS Error",
@@ -405,7 +405,7 @@
         },
         {
             "file": "addon/date.js",
-            "line": 18,
+            "line": 11,
             "itemtype": "method",
             "name": "validate",
             "params": [
