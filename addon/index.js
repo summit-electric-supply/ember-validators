@@ -42,3 +42,7 @@ export function validate(type, ...args) {
       assert(`Validator not found of type: ${type}.`, false);
   }
 }
+
+export default {
+  validate
+};
