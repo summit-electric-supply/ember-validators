@@ -1,7 +1,15 @@
 import { isEmpty, isNone } from '@ember/utils';
 import { set, getProperties, get } from '@ember/object';
 import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isBetween from 'dayjs/plugin/isBetween';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
+dayjs.extend(isBetween);
+dayjs.extend(customParseFormat);
 
 /**
  * @class Date
@@ -24,12 +32,10 @@ import moment from 'moment';
  * @param {Object} model
  * @param {String} attribute
  */
-export default function validateDate(value, options) {
-  if (!moment) {
-    throw new Error('MomentJS is required to use the Date validator.');
-  }
 
-  let errorFormat = get(options, 'errorFormat') ?? 'MMM Do, YYYY';
+export default function validateDate(value, options) {
+
+  let errorFormat = get(options, 'errorFormat') ?? 'YYYY-MM-DD';
   let { format, precision, allowBlank } = getProperties(options, ['format', 'precision', 'allowBlank']);
   let { before, onOrBefore, after, onOrAfter } = getProperties(options, ['before', 'onOrBefore', 'after', 'onOrAfter']);
   let date;
@@ -61,7 +67,7 @@ export default function validateDate(value, options) {
   if (before) {
     before = parseDate(before, format);
 
-    if (!date.isBefore(before, precision)) {
+    if (!(date.isBefore(before, precision))) {
       set(options, 'before', before.format(errorFormat));
       return validationError('before', value, options);
     }
@@ -70,7 +76,7 @@ export default function validateDate(value, options) {
   if (onOrBefore) {
     onOrBefore = parseDate(onOrBefore, format);
 
-    if (!date.isSameOrBefore(onOrBefore, precision))  {
+    if (!(date.isSameOrBefore(onOrBefore, precision)))  {
       set(options, 'onOrBefore', onOrBefore.format(errorFormat));
       return validationError('onOrBefore', value, options);
     }
@@ -79,7 +85,7 @@ export default function validateDate(value, options) {
   if (after) {
     after = parseDate(after, format);
 
-    if (!date.isAfter(after, precision)) {
+    if (!(date.isAfter(after, precision))) {
       set(options, 'after', after.format(errorFormat));
       return validationError('after', value, options);
     }
@@ -88,7 +94,7 @@ export default function validateDate(value, options) {
   if (onOrAfter) {
     onOrAfter = parseDate(onOrAfter, format);
 
-    if (!date.isSameOrAfter(onOrAfter, precision)) {
+    if (!(date.isSameOrAfter(onOrAfter, precision))) {
       set(options, 'onOrAfter', onOrAfter.format(errorFormat));
       return validationError('onOrAfter', value, options);
     }
@@ -99,8 +105,11 @@ export default function validateDate(value, options) {
 
 export function parseDate(date, format, useStrict = false) {
   if (date === 'now' || isEmpty(date)) {
-    return moment();
+    return dayjs();
   }
-
-  return isNone(format) ? moment(new Date(date)) : moment(date, format, useStrict);
+  if (isNone(format)) {
+    return dayjs(new Date(date));
+  } else {
+    return dayjs(date, format, useStrict);
+  }
 }
