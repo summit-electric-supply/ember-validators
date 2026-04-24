@@ -1,6 +1,6 @@
 {
   "name": "@summit-electric-supply/ember-validators",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "description": "A collection of Ember validators",
   "keywords": [
     "ember-addon",
@@ -116,7 +116,7 @@
     "typedoc": "^0.28.19",
     "typescript": "^6.0.3",
     "webpack": "^5.106.2",
-       "dayjs": "^1.11.10",
+    "dayjs": "^1.11.10",
     "yuidoc-ember-theme": "^2.0.1"
   },
   "peerDependencies": {
