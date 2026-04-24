@@ -1,14 +1,7 @@
 import { isEmpty, isNone } from '@ember/utils';
 import { set, getProperties, get } from '@ember/object';
 import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
-let moment;
-
-try {
-  moment = require('moment');
-} catch (e) {
-  // For ESM environments (like Vite/Embroider), fallback to import
-  moment = undefined;
-}
+import moment from 'moment';
 
 /**
  * @class Date
