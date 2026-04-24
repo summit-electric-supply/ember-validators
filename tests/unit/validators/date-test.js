@@ -1,4 +1,4 @@
-import moment from 'moment';
+const moment = require('moment');
 import { module, test } from 'qunit';
 import validate from '@summit-electric-supply/ember-validators/date';
 import processResult from '../../helpers/process-result';

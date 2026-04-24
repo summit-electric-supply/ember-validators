@@ -1,7 +1,7 @@
 import { isEmpty, isNone } from '@ember/utils';
 import { set, getProperties, get } from '@ember/object';
 import validationError from '@summit-electric-supply/ember-validators/utils/validation-error';
-import moment from 'moment';
+const moment = require('moment');
 
 /**
  * @class Date
