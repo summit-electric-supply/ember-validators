@@ -4,7 +4,7 @@
         "description": "A collection of EmberJS validators",
         "url": "https://github.com/summit-electric-supply/ember-cp-validations",
         "indexModule": "Validators",
-        "version": "v2.1.5"
+        "version": "v2.1.6"
     },
     "files": {
         "addon/utils/can-invoke.js": {
